@@ -31,9 +31,15 @@ class Menus:
         print("\n\033[1;93m   ╔═════════════════════════════════════════════╗\033[0m")
         print("\033[1;93m   ║\033[1;97m            B I E N V E N I D O              \033[1;93m║")
         print("   ╚═════════════════════════════════════════════╝\033[0m")
-        print("\n      1) Registrar trabajadores.")
-        print("      2) BUscar trabajadores por servicio")
-        print("      3) Listar trabajadores")
-        print("      4) Salir\n")
+        print("\n\033[93m      1)\033[0m Registrar trabajadores.")
+        print("\033[93m      2)\033[0m BUscar trabajadores por servicio")
+        print("\033[93m      3)\033[0m Listar trabajadores")
+        print("\033[93m      4)\033[0m Salir\n")
+    
+    def Op1():
+        Excepts.Clear()
+        print("\n\033[1;93m   ╔═════════════════════════════════════════════╗\033[0m")
+        print("\033[1;93m   ║\033[1;97m         REGISTRAR TRABAJADOR            \033[1;93m║")
+        print("   ╚═════════════════════════════════════════════╝\033[0m")
 
         

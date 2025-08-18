@@ -6,7 +6,10 @@ class Provider:
         self.rating = rating
 
     def __str__(self):
-        return(f"  ═════════ID: {self.id}\n   - Nombre: {self.name}\n   - Tipo de Servicio: {self.service}   - Calificación: {self.rating}")
+        return(f"\033[1;93m   ═════════ ID: {self.id}\033[0m\n"
+                f"   - Nombre: {self.name}\n"
+                f"   - Tipo de Servicio: {self.service}\n"
+                f"   - Calificación: {self.rating}\n")
     
     @staticmethod
     def ranking(providers):

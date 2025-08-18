@@ -1,12 +1,15 @@
 
 from nodo import BNode
-
+from excepts import Excepts
 
 
 class BTree:
     def __init__(self, order):
         self.order = order
         self.root = BNode(order)
+    
+    def __len__(self):
+        return len(self.get_all_providers()) #me va a servir para usarlo en el main :)
 
     def insert(self, key):
         root_node = self.root
@@ -62,17 +65,32 @@ class BTree:
             if child.keys or not child.leaf:
                 self.display(child, level + 1)
 
-    def search(self, key_id, current_node=None):
+    def search(self, service, current_node=None, results = None):
+        if results is None:
+            results = []
         if current_node is None:
             current_node = self.root
-        i = 0
-        while i < len(current_node.keys) and int(key_id) > int(current_node.keys[i].id):
-            i += 1
-        if i < len(current_node.keys) and int(current_node.keys[i].id) == int(key_id):
-            print(f"Object with id {key_id} found in node: {[obj.id for obj in current_node.keys]}")
-            return current_node.keys[i]
-        if current_node.leaf:
-            print(f"Object with id {key_id} not found.")
-            return None
-        return self.search(key_id, current_node.children[i])
+        
+        for key in current_node.keys:
+            if Excepts.Normalize(key.service) == Excepts.Normalize(service):
+                results.append(key)
+        
+        if not current_node.leaf:
+            for child in current_node.children:
+                self.search_by_service(service, child, results)
 
+        return results
+    
+    def get_all_providers(self, current_node=None, results=None):
+        if results is None:
+            results = []
+        if current_node is None:
+            current_node = self.root
+
+        results.extend(current_node.keys) 
+
+        if not current_node.leaf:
+            for child in current_node.children:
+                self.get_all_providers(child, results)
+
+        return results
