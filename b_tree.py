@@ -60,7 +60,7 @@ class BTree:
         if current_node is None:
             current_node = self.root
         if current_node.keys:
-            print("Nivel", level, ":", [obj.id for obj in current_node.keys])
+            print("    Nivel", level, ":", [obj.id for obj in current_node.keys])
         for child in current_node.children:
             if child.keys or not child.leaf:
                 self.display(child, level + 1)
