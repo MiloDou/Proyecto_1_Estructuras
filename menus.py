@@ -4,6 +4,7 @@ from excepts import Excepts
 from b_tree import BTree
 from random import randint
 from providers import Provider
+from archive import Archive
 
 
 class Menus:
@@ -30,7 +31,7 @@ class Menus:
         print("\033[1;93m   ║\033[1;97m            B I E N V E N I D O              \033[1;93m║")
         print("   ╚═════════════════════════════════════════════╝\033[0m")
         print("\n\033[93m      1)\033[0m Registrar trabajadores.")
-        print("\033[93m      2)\033[0m BUscar trabajadores por servicio")
+        print("\033[93m      2)\033[0m Buscar trabajadores por servicio")
         print("\033[93m      3)\033[0m Listar trabajadores")
         print("\033[93m      4)\033[0m Exportar")
         print("\033[93m      5)\033[0m Salir\n")
@@ -91,15 +92,16 @@ class Menus:
         Excepts.Continue()
     
     def Op4():
-        if len(Menus.tree) == 0:
+        archive = Archive()
+        archive.providers = Menus.tree
+        if archive.is_empty():
             print("\033[31m    No existen trabajadores registrados.\033[0m")
         else:
             Excepts.Clear()
             print("\n\033[1;93m   ╔═════════════════════════════════════════════╗\033[0m")
             print("\033[1;93m   ║\033[1;97m              EXPORTAR ARCHIVO               \033[1;93m║")
             print("   ╚═════════════════════════════════════════════╝\033[0m\n")
-            ##agregar lo de los archivos
-                
+            archive.create_archive()
         Excepts.Continue()
 
     def Salir():

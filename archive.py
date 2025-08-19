@@ -3,6 +3,9 @@ from providers import Provider
 import time
 import os 
 class Archive:
+    def is_empty(self):
+        """Return True if there are no providers in the tree."""
+        return len(self.providers.get_all_providers()) == 0
     def __init__(self):
         self.providers = BTree(3)
     
@@ -20,18 +23,18 @@ class Archive:
                 for provider in all_providers:
                     file_1.write(str(provider) + "\n")
                     file_1.write("    ════════════════════════════════════════\n")
-                file_1.write(f'   Total de trabajadores: {len(all_providers)}\n')
-                file_1.write("    ════════════════════════════════════════\n")
-                file_1.write(f'   Fecha de creación: {time.strftime("%Y-%m-%d %H:%M:%S")}\n')
-                file_1.write("    ════════════════════════════════════════\n")
-                file_1.write(Provider.ranking(all_providers) + "\n")
-                file_1.write("    ════════════════════════════════════════\n")
-                file_1.write(Provider.alphabetic_orden(all_providers) + "\n")
-                file_1.write("    ════════════════════════════════════════\n")
-                file_1.write(Provider.common_services(all_providers) + "\n")
-                file_1.write("    ════════════════════════════════════════\n")
-                file_1.write("Todos los trabajadores:\n")
-                for provider in all_providers:
-                    file_1.write(str(provider) + "\n")
+                    file_1.write(f'   Total de trabajadores: {len(all_providers)}\n')
+                    file_1.write("    ════════════════════════════════════════\n")
+                    file_1.write(f'   Fecha de creación: {time.strftime("%Y-%m-%d %H:%M:%S")}\n')
+                    file_1.write("    ════════════════════════════════════════\n")
+                    file_1.write(str(Provider.ranking(all_providers)) )
+                    file_1.write("    ════════════════════════════════════════\n")
+                    file_1.write(str(Provider.alphabetic_orden(all_providers)) + "\n")
+                    file_1.write("    ════════════════════════════════════════\n")
+                    file_1.write(str(Provider.common_services(all_providers)) + "\n")
+                    file_1.write("    ════════════════════════════════════════\n")
+                    file_1.write("Todos los trabajadores:\n")
+                    for provider in all_providers:
+                        file_1.write(str(provider) + "\n")
         print("Archivo 'archive.txt' creado exitosamente.")
         os.startfile('archive.txt')
