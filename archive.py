@@ -16,7 +16,7 @@ class Archive:
         print("Creando el archivo...")
         time.sleep(2)
         all_providers = self.providers.get_all_providers()
-        with open('archive.csv', 'w', encoding='utf-8') as file_1:
+        with open('archive.xls', 'w', encoding='utf-8') as file_1:
             if not all_providers:
                 file_1.write("No hay trabajadores registrados.\n")
             else:
