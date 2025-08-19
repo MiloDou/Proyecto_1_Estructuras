@@ -77,7 +77,7 @@ class BTree:
         
         if not current_node.leaf:
             for child in current_node.children:
-                self.search_by_service(service, child, results)
+                self.search(service, child, results)
 
         return results
     
