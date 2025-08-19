@@ -13,14 +13,14 @@ class Provider:
     
     @staticmethod
     def ranking(providers):
-        print('Top rated providers:')
+        print('Mejores calificados:')
         sorted_providers = sorted(providers, key=lambda p: p.rating, reverse=True)
         for provider in sorted_providers:
             print(provider)
 
     @staticmethod
     def alphabetic_orden(providers):
-        print('Providers in alphabetical order:')
+        print('Ordenados alfabéticamente:')
         sorted_providers = sorted(providers, key=lambda p: p.name)
         for provider in sorted_providers:
             print(provider)
@@ -33,7 +33,7 @@ class Provider:
                 service_count[provider.service] += 1
             else:
                 service_count[provider.service] = 1
-        result = "Common services:\n"
+        result = "Servicios más comunes:\n"
         for service, count in service_count.items():
             result += f"{service}: {count}\n"
         return result

@@ -102,6 +102,7 @@ class Menus:
             print("\033[1;93m   ║\033[1;97m              EXPORTAR ARCHIVO               \033[1;93m║")
             print("   ╚═════════════════════════════════════════════╝\033[0m\n")
             archive.create_archive()
+            os.startfile('archive.csv')
         Excepts.Continue()
 
     def Salir():
