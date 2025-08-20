@@ -58,7 +58,7 @@ class Menus:
     
     def Op2():
         if len(Menus.tree) == 0:
-            print("\033[31m   No existen trabajadores registrados.\033[0m")
+            print("\033[31m    No existen trabajadores registrados.\033[0m")
         else:
             Excepts.Clear()
             print("\n\033[1;93m   ╔═════════════════════════════════════════════╗\033[0m")
